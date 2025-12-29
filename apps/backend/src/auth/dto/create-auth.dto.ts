@@ -3,5 +3,4 @@ export class CreateAuthDto {
     LastName: string;
     email: string;
     password: string;
-    nickName: string;
 }
