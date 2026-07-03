@@ -63,14 +63,6 @@ MajTasks/
 ├── packages/                        # Shared libs (empty — .gitkeep only)
 │   └── .gitkeep
 │
-├── .agents/                         # Nx/agent skills (nx-generate, monitor-ci, etc.)
-├── .github/
-│   ├── workflows/
-│   │   └── ci.yml
-│   ├── skills/                      # Mirrored agent skills
-│   ├── agents/
-│   └── prompts/
-│
 ├── .vscode/
 │   ├── launch.json
 │   └── extensions.json
@@ -86,6 +78,4 @@ MajTasks/
 ├── jest.config.ts
 ├── jest.preset.js
 ├── eslint.config.mjs
-├── README.md
-├── AGENTS.md
-└── CLAUDE.md
+└── README.md
