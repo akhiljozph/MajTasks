@@ -2,7 +2,10 @@
   "name": "@org/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "tasks-ui": "nx serve tasks-ui",
+    "tasks-api": "nx serve tasks-api"
+  },
   "private": true,
   "devDependencies": {
     "@eslint/js": "^9.8.0",
@@ -14,7 +17,6 @@
     "@nx/jest": "23.0.1",
     "@nx/js": "23.0.1",
     "@nx/nest": "^23.0.1",
-    "@nx/next": "^23.0.1",
     "@nx/node": "23.0.1",
     "@nx/playwright": "23.0.1",
     "@nx/react": "^23.0.1",
