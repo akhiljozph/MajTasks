@@ -3,8 +3,12 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "tasks-ui": "nx serve tasks-ui",
-    "tasks-api": "nx serve tasks-api"
+    "tasks-ui:start": "nx serve tasks-ui",
+    "tasks-ui:test": "nx test tasks-ui",
+    "tasks-ui:e2e": "nx e2e tasks-ui-e2e",
+    "tasks-api:start": "nx serve tasks-api",
+    "tasks-api:test": "nx test tasks-api",
+    "tasks-api:e2e": "nx e2e tasks-api-e2e"
   },
   "private": true,
   "devDependencies": {
