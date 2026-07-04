@@ -1,9 +1,17 @@
 import React from "react";
+import { DefaultFallbackProps } from "./default-fallback.props";
 
-export const DefaultFallck: React.FC<any> = () => {
+export const DefaultFallback: React.FC<DefaultFallbackProps> = ({
+    error,
+    resetErrorBoundary
+}) => {
     return (
-        <>
-            <p>Something went wrong </p>
-        </>
+        <div>
+            <h2>Something went wrong!</h2>
+            <p>{error?.message || 'An unexpected error occurred!'}</p>
+            <button onClick={(resetErrorBoundary)}>
+                Try Again
+            </button>
+        </div>
     )
 }
