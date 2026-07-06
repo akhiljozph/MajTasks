@@ -2,9 +2,10 @@ import { createBrowserRouter, Navigate } from "react-router-dom";
 
 import { RoutePaths } from "./route-paths";
 import { AuthLayout } from "../layouts/auth/auth-layout";
-import { ErrorBoundary } from "../components/error-boundary/error-boundary/error-boundary";
+import { ErrorBoundary } from "../components/error-wrappers/error-boundary/error-boundary";
 import SignIn from "../pages/auth/sign-in/sign-in";
 import SignUp from "../pages/auth/sign-up/sign-up";
+import PageNotFound from "../components/error-wrappers/page-not-found/page-not-found";
 
 export const appRouter = createBrowserRouter([
     {
@@ -34,6 +35,6 @@ export const appRouter = createBrowserRouter([
         ],
     }, {
         path: '*',
-        element: <>404 - Page Not Found</>,
+        element: <PageNotFound />,
     },
 ]);
