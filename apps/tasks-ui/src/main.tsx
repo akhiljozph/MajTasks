@@ -1,5 +1,5 @@
 import { StrictMode } from 'react';
-import { BrowserRouter, RouterProvider } from 'react-router-dom';
+import { RouterProvider } from 'react-router-dom';
 import * as ReactDOM from 'react-dom/client';
 
 import { ErrorBoundary } from './components/error-boundary/error-boundary/error-boundary';
