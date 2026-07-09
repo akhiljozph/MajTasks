@@ -8,7 +8,8 @@
     "tasks-ui:e2e": "nx e2e tasks-ui-e2e",
     "tasks-api:start": "nx serve tasks-api",
     "tasks-api:test": "nx test tasks-api",
-    "tasks-api:e2e": "nx e2e tasks-api-e2e"
+    "tasks-api:e2e": "nx e2e tasks-api-e2e",
+    "prepare": "husky"
   },
   "private": true,
   "devDependencies": {
@@ -52,13 +53,15 @@
     "eslint-plugin-playwright": "^1.6.2",
     "eslint-plugin-react": "7.35.0",
     "eslint-plugin-react-hooks": "5.0.0",
+    "husky": "^9.1.7",
     "jest": "~30.3.0",
     "jest-environment-node": "~30.3.0",
     "jest-util": "~30.3.0",
     "jiti": "2.4.2",
     "jsdom": "^27.1.0",
+    "lint-staged": "^17.0.8",
     "nx": "23.0.1",
-    "prettier": "^3.8.1",
+    "prettier": "^3.9.4",
     "sass": "^1.97.2",
     "ts-jest": "^29.4.0",
     "ts-node": "10.9.1",
