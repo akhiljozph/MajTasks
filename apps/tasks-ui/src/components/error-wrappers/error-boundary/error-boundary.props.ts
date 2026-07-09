@@ -1,5 +1,5 @@
-import { ComponentType, ReactNode } from "react";
 import { FallbackProps } from "react-error-boundary";
+import { ComponentType, ReactNode } from "react";
 
 export interface ErrorBoundaryProps {
     children: ReactNode;
