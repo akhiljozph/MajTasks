@@ -37,8 +37,7 @@ npm run tasks-api:e2e
 ```
 
 ## Technical Stack
-
-### Monorpo
+### Monorepo
 - nx
 
 ### Frontend
@@ -46,5 +45,16 @@ npm run tasks-api:e2e
 - React Error Boundary
 - React Router DOM - V6
 
+### State Management
+- Redux Toolkit (@reduxjs/toolkit, react-redux)
+
+### Component Library
+- Material UI
+
 ### Backend
 - Nest.js
+
+### Code Quality & Tooling
+- ESLint + eslint-plugin-perfectionist (Line-length sorting and scope grouping)
+- Vitest (`tasks-ui` test runner)
+- Jest (`tasks-api` test runner)
