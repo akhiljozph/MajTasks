@@ -14,6 +14,14 @@ export default defineConfig(() => ({
     host: 'localhost',
   },
   plugins: [react()],
+  optimizeDeps: {
+    include: [
+      '@mui/material',
+      '@mui/icons-material',
+      '@emotion/react',
+      '@emotion/styled'
+    ],
+  },
   // Uncomment this if you are using workers.
   // worker: {
   //  plugins: [],
