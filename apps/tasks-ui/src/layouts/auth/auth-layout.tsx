@@ -1,5 +1,5 @@
-import React from 'react';
 import { Outlet, Navigate } from 'react-router-dom';
+import React from 'react';
 
 export const AuthLayout: React.FC = () => {
     // const isAuthenticated = false;
@@ -9,8 +9,6 @@ export const AuthLayout: React.FC = () => {
     // }
 
     return (
-        <>
-            <Outlet />
-        </>
+        <Outlet />
     );
 };

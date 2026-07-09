@@ -1,4 +1,5 @@
 import nx from '@nx/eslint-plugin';
+import perfectionist from 'eslint-plugin-perfectionist';
 
 export default [
   ...nx.configs['flat/base'],
@@ -15,6 +16,9 @@ export default [
   },
   {
     files: ['**/*.ts', '**/*.tsx', '**/*.js', '**/*.jsx'],
+    plugins: {
+      perfectionist,
+    },
     rules: {
       '@nx/enforce-module-boundaries': [
         'error',
@@ -27,6 +31,19 @@ export default [
               onlyDependOnLibsWithTags: ['*'],
             },
           ],
+        },
+      ],
+      'perfectionist/sort-imports': [
+        'error',
+        {
+          type: 'line-length',
+          order: 'desc',
+          fallbackSort: { type: 'alphabetical', order: 'asc' },
+          groups: [
+            ['builtin', 'external'],
+            ['internal', 'parent', 'sibling', 'index', 'unknown'],
+          ],
+          newlinesBetween: 1,
         },
       ],
     },

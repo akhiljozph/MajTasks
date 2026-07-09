@@ -1,14 +1,14 @@
-import { StrictMode } from 'react';
-import * as ReactDOM from 'react-dom/client';
-import { RouterProvider } from 'react-router-dom';
-import CssBaseline from '@mui/material/CssBaseline';
-import { ThemeProvider } from '@mui/material/styles';
 import { Provider as ReduxProvider } from 'react-redux';
+import { ThemeProvider } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
+import { RouterProvider } from 'react-router-dom';
+import * as ReactDOM from 'react-dom/client';
+import { StrictMode } from 'react';
 
-import { store } from './store';
-import { appRouter } from './routes/app-routes';
-import { applicationTheme } from './theme/application-theme';
 import { ErrorBoundary } from './components/error-wrappers/error-boundary/error-boundary';
+import { applicationTheme } from './theme/application-theme';
+import { appRouter } from './routes/app-routes';
+import { store } from './store';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement,
