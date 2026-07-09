@@ -22,8 +22,9 @@ root.render(
       <ReduxProvider store={store}>
         {/* MUI Engine: Applies design tokens across the tree */}
         <ThemeProvider theme={applicationTheme}>
+          {/* CssBaseline kicks off a consistent global CSS reset based on theme tokens */}
           <CssBaseline />
-
+          {/* React Router Data Layer: Executes data fetching and page mounting */}
           <RouterProvider router={appRouter} />
         </ThemeProvider>
       </ReduxProvider>
