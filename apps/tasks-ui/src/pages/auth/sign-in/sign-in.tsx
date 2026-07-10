@@ -21,7 +21,7 @@ export function SignIn() {
             component="form"
             onSubmit={handleSubmit(onSubmit)}
         >
-            <Typography variant="h3">
+            <Typography variant="h3" component="h1">
                 Sign In
             </Typography>
 
@@ -35,8 +35,10 @@ export function SignIn() {
                 render={({ field }) => (
                     <TextField
                         {...field}
-                        label="Username"
+                        label="Email Address"
                         variant="outlined"
+                        type="email"
+                        autoComplete="email"
                         fullWidth
                         error={!!errors.email}
                         helperText={errors.email?.message}
