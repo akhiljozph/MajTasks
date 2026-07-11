@@ -6,6 +6,7 @@ import { Controller, useForm } from "react-hook-form";
 import { useState } from "react";
 
 import { ISignInFormInputs } from "./sign-in.types";
+import "./sign-in.modules.scss";
 
 export function SignIn() {
 
@@ -20,10 +21,7 @@ export function SignIn() {
 
     const handleClickShowPassword = () => setShowPassword((show) => !show);
 
-    const handleMouseDownPassword = (event: React.MouseEvent<HTMLButtonElement>) => {
-        console.log(event);
-        event.preventDefault();
-    };
+    const handleMouseDownPassword = (event: React.MouseEvent<HTMLButtonElement>) => event.preventDefault();
 
     const onSubmit = (data: ISignInFormInputs) => {
         console.log('Sign In Payload', data);
@@ -33,6 +31,7 @@ export function SignIn() {
         <Box
             component="form"
             onSubmit={handleSubmit(onSubmit)}
+            className="sign-in-box"
         >
             <Typography variant="h3" component="h1">
                 Sign In

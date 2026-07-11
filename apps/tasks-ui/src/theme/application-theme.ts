@@ -13,7 +13,7 @@ export const applicationTheme = createTheme({
         },
     },
     typography: {
-        fontFamily: '"Inter", "Roboto"',
+        fontFamily: '"Joti One", "Roboto"',
         h1: {
             fontWeight: 700,
         },
