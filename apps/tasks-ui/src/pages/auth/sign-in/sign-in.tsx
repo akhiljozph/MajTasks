@@ -98,7 +98,7 @@ export function SignIn() {
             />
 
             <Button type="submit" variant="contained" color="primary" fullWidth size="large">
-                Log In
+                Sign In
             </Button>
         </Box>
     );
