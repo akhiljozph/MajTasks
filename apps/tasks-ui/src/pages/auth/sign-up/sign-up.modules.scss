@@ -4,4 +4,15 @@
   flex-direction: column;
   align-items: center;
   padding: 3rem;
+
+  .helper-sign-in {
+    span {
+      cursor: pointer;
+      text-decoration: underline;
+
+      &:hover {
+        color: #179cf5;
+      }
+    }
+  }
 }

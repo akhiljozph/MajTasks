@@ -1,8 +1,8 @@
 import { Box, Button, FormControl, FormHelperText, InputLabel, MenuItem, Select, TextField, Typography } from "@mui/material";
+import { Controller, useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 
 import "./sign-up.modules.scss";
-import { Controller, useForm } from "react-hook-form";
-
 import { ISignUpFormInputs } from "./sign-up.types";
 
 const COUNTRIES = [
@@ -14,6 +14,8 @@ const COUNTRIES = [
 ];
 
 export function SignUp() {
+
+    const navigate = useNavigate();
 
     const { control, handleSubmit, formState: { errors } } = useForm<ISignUpFormInputs>({
         defaultValues: {
@@ -29,6 +31,10 @@ export function SignUp() {
     const onSubmit = (data: ISignUpFormInputs) => {
         console.log('Sign up Payload', data);
     };
+
+    const navigateToSignIn = () => {
+        navigate('/auth/sign-in');
+    }
 
     return (
         <Box
@@ -147,6 +153,7 @@ export function SignUp() {
             <Button type="submit" variant="contained" color="primary" fullWidth size="large">
                 Sign Up
             </Button>
+            <p className="helper-sign-in">Already have an Account? <span onClick={navigateToSignIn}>Sign in.</span></p>
         </Box>
     );
 }
