@@ -3,12 +3,13 @@ import { Box, Button, TextField, Typography } from "@mui/material";
 import "./sign-up.modules.scss";
 import { Controller, useForm } from "react-hook-form";
 
-import { ISignUpFormInputs } from "./sign-in.types";
+import { ISignUpFormInputs } from "./sign-up.types";
 
 export function SignUp() {
 
     const { control, handleSubmit, formState: { errors } } = useForm<ISignUpFormInputs>({
         defaultValues: {
+            country: '',
             email: '',
             password: '',
             confirmPassword: ''
@@ -32,11 +33,30 @@ export function SignUp() {
             </Typography>
 
             <Controller
+                name="country"
+                control={control}
+                rules={{
+                    required: 'Country is required!'
+                }}
+                render={({ field }) => (
+                    <TextField
+                        {...field}
+                        label="Country"
+                        variant="outlined"
+                        type="text"
+                        fullWidth
+                        error={!!errors.country}
+                        helperText={errors.country?.message}
+                    />
+                )}
+            />
+
+            <Controller
                 name="email"
                 control={control}
                 rules={{
                     required: 'Email is required!',
-                    pattern: { value: /^\S+@\S+$/i, message: 'Invalid email address!' }
+                    pattern: { value: /@[^.]+\..+/, message: 'Invalid email address!' }
                 }}
                 render={({ field }) => (
                     <TextField
