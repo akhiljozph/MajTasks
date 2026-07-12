@@ -1,14 +1,25 @@
-import { Box, Button, TextField, Typography } from "@mui/material";
+import { Box, Button, FormControl, FormHelperText, InputLabel, MenuItem, Select, TextField, Typography } from "@mui/material";
+import { Controller, useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 
 import "./sign-up.modules.scss";
-import { Controller, useForm } from "react-hook-form";
+import { ISignUpFormInputs } from "./sign-up.types";
 
-import { ISignUpFormInputs } from "./sign-in.types";
+const COUNTRIES = [
+    { code: 'US', name: 'United States' },
+    { code: 'CA', name: 'Canada' },
+    { code: 'GB', name: 'United Kingdom' },
+    { code: 'DE', name: 'Germany' },
+    { code: 'IN', name: 'India' },
+];
 
 export function SignUp() {
 
+    const navigate = useNavigate();
+
     const { control, handleSubmit, formState: { errors } } = useForm<ISignUpFormInputs>({
         defaultValues: {
+            country: '',
             email: '',
             password: '',
             confirmPassword: ''
@@ -21,6 +32,10 @@ export function SignUp() {
         console.log('Sign up Payload', data);
     };
 
+    const navigateToSignIn = () => {
+        navigate('/auth/sign-in');
+    }
+
     return (
         <Box
             component="form"
@@ -32,11 +47,43 @@ export function SignUp() {
             </Typography>
 
             <Controller
+                name="country"
+                control={control}
+                rules={{
+                    required: 'Country is required!'
+                }}
+                render={({ field }) => (
+                    <FormControl fullWidth error={!!errors.country}>
+                        <InputLabel>Country</InputLabel>
+                        <Select
+                            {...field}
+                            label="Country"
+                            slotProps={{
+                                root: {
+                                    'aria-invalid': !!errors,
+                                },
+                            }}
+                        >
+                            <MenuItem value="" disabled>
+                                <em>Select a country</em>
+                            </MenuItem>
+                            {COUNTRIES.map((country) => (
+                                <MenuItem key={country.code} value={country.code}>
+                                    {country.name}
+                                </MenuItem>
+                            ))}
+                        </Select>
+                        {errors && <FormHelperText>{errors.country?.message}</FormHelperText>}
+                    </FormControl>
+                )}
+            />
+
+            <Controller
                 name="email"
                 control={control}
                 rules={{
                     required: 'Email is required!',
-                    pattern: { value: /^\S+@\S+$/i, message: 'Invalid email address!' }
+                    pattern: { value: /@[^.]+\..+/, message: 'Invalid email address!' }
                 }}
                 render={({ field }) => (
                     <TextField
@@ -106,6 +153,7 @@ export function SignUp() {
             <Button type="submit" variant="contained" color="primary" fullWidth size="large">
                 Sign Up
             </Button>
+            <p className="helper-sign-in">Already have an Account? <span onClick={navigateToSignIn}>Sign in.</span></p>
         </Box>
     );
 }
