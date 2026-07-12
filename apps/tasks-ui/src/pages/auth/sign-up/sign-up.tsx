@@ -1,9 +1,17 @@
-import { Box, Button, TextField, Typography } from "@mui/material";
+import { Box, Button, FormControl, FormHelperText, InputLabel, MenuItem, Select, TextField, Typography } from "@mui/material";
 
 import "./sign-up.modules.scss";
 import { Controller, useForm } from "react-hook-form";
 
 import { ISignUpFormInputs } from "./sign-up.types";
+
+const COUNTRIES = [
+    { code: 'US', name: 'United States' },
+    { code: 'CA', name: 'Canada' },
+    { code: 'GB', name: 'United Kingdom' },
+    { code: 'DE', name: 'Germany' },
+    { code: 'IN', name: 'India' },
+];
 
 export function SignUp() {
 
@@ -39,15 +47,28 @@ export function SignUp() {
                     required: 'Country is required!'
                 }}
                 render={({ field }) => (
-                    <TextField
-                        {...field}
-                        label="Country"
-                        variant="outlined"
-                        type="text"
-                        fullWidth
-                        error={!!errors.country}
-                        helperText={errors.country?.message}
-                    />
+                    <FormControl fullWidth error={!!errors.country}>
+                        <InputLabel>Country</InputLabel>
+                        <Select
+                            {...field}
+                            label="Country"
+                            slotProps={{
+                                root: {
+                                    'aria-invalid': !!errors,
+                                },
+                            }}
+                        >
+                            <MenuItem value="" disabled>
+                                <em>Select a country</em>
+                            </MenuItem>
+                            {COUNTRIES.map((country) => (
+                                <MenuItem key={country.code} value={country.code}>
+                                    {country.name}
+                                </MenuItem>
+                            ))}
+                        </Select>
+                        {errors && <FormHelperText>{errors.country?.message}</FormHelperText>}
+                    </FormControl>
                 )}
             />
 
