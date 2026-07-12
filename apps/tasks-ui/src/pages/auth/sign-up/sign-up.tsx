@@ -17,7 +17,7 @@ export function SignUp() {
 
     const navigate = useNavigate();
 
-    const { control, handleSubmit, formState: { errors } } = useForm<ISignUpFormInputs>({
+    const { control, handleSubmit, watch, formState: { errors } } = useForm<ISignUpFormInputs>({
         defaultValues: {
             country: '',
             email: '',
@@ -25,6 +25,8 @@ export function SignUp() {
             confirmPassword: ''
         }
     });
+
+    const passwordValue = watch('password');
 
     const handlePaste = (event: React.ClipboardEvent<HTMLDivElement>) => event.preventDefault();
 
@@ -113,6 +115,7 @@ export function SignUp() {
                         variant="outlined"
                         type="password"
                         fullWidth
+                        autoComplete="new-password"
                         error={!!errors.password}
                         helperText={errors.password?.message}
                         onPaste={handlePaste}
@@ -129,7 +132,8 @@ export function SignUp() {
                 name="confirmPassword"
                 control={control}
                 rules={{
-                    required: 'Password confirmation is required!'
+                    required: 'Password confirmation is required!',
+                    validate: (value) => value === passwordValue || 'Passwords do not match!'
                 }}
                 render={({ field }) => (
                     <TextField
@@ -138,6 +142,7 @@ export function SignUp() {
                         variant="outlined"
                         type="password"
                         fullWidth
+                        autoComplete="new-password"
                         error={!!errors.confirmPassword}
                         helperText={errors.confirmPassword?.message}
                         onPaste={handlePaste}
