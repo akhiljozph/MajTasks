@@ -2,8 +2,8 @@ import { createBrowserRouter, Navigate } from "react-router-dom";
 
 import { ErrorBoundary } from "../components/error-wrappers/error-boundary/error-boundary";
 import PageNotFound from "../components/error-wrappers/page-not-found/page-not-found";
-import SignIn from "../pages/auth/signin/signin-page";
-import SignUp from "../pages/auth/signup/signup-page";
+import SigninPage from "../pages/auth/signin/signin-page";
+import SignupPage from "../pages/auth/signup/signup-page";
 import AuthLayout from "../layouts/auth/auth-layout";
 import { RoutePaths } from "./route-paths";
 
@@ -26,11 +26,11 @@ export const appRouter = createBrowserRouter([
             },
             {
                 path: RoutePaths.AUTH.SIGN_IN,
-                element: <SignIn />,
+                element: <SigninPage />,
             },
             {
                 path: RoutePaths.AUTH.SIGN_UP,
-                element: <SignUp />,
+                element: <SignupPage />,
             },
         ],
     }, {

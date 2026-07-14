@@ -1,4 +1,4 @@
-export interface ISignUpFormInputs {
+export interface ISignupPageFormInputs {
     country: string;
     email: string;
     password: string;

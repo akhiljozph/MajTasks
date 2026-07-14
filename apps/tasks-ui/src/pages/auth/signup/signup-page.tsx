@@ -2,8 +2,8 @@ import { Box, Button, FormControl, FormHelperText, InputLabel, MenuItem, Select,
 import { Controller, useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 
-import "./sign-up.modules.scss";
-import { ISignUpFormInputs } from "./signup-page.types";
+import "./signup-page.modules.scss";
+import { ISignupPageFormInputs } from "./signup-page.types";
 
 const COUNTRIES = [
     { code: 'US', name: 'United States' },
@@ -13,11 +13,11 @@ const COUNTRIES = [
     { code: 'IN', name: 'India' },
 ];
 
-export function SignUp() {
+function SignupPage() {
 
     const navigate = useNavigate();
 
-    const { control, handleSubmit, watch, formState: { errors } } = useForm<ISignUpFormInputs>({
+    const { control, handleSubmit, watch, formState: { errors } } = useForm<ISignupPageFormInputs>({
         defaultValues: {
             country: '',
             email: '',
@@ -30,11 +30,11 @@ export function SignUp() {
 
     const handlePaste = (event: React.ClipboardEvent<HTMLDivElement>) => event.preventDefault();
 
-    const onSubmit = (data: ISignUpFormInputs) => {
+    const onSubmit = (data: ISignupPageFormInputs) => {
         console.log('Sign up Payload', data);
     };
 
-    const navigateToSignIn = () => {
+    const navigateToSignupPage = () => {
         navigate('/auth/sign-in');
     }
 
@@ -158,9 +158,9 @@ export function SignUp() {
             <Button type="submit" variant="contained" color="primary" fullWidth size="large">
                 Sign Up
             </Button>
-            <p className="helper-sign-in">Already have an Account? <span onClick={navigateToSignIn}>Sign in.</span></p>
+            <p className="helper-sign-in">Already have an Account? <span onClick={navigateToSignupPage}>Sign in.</span></p>
         </Box>
     );
 }
 
-export default SignUp;
+export default SignupPage;

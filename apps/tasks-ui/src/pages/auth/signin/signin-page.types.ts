@@ -1,4 +1,4 @@
-export interface ISignInFormInputs {
+export interface ISigninPageFormInputs {
     email: string;
     password: string;
 }
