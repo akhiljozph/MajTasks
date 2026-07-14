@@ -5,7 +5,7 @@ import Visibility from '@mui/icons-material/Visibility';
 import { Controller, useForm } from "react-hook-form";
 import { useState } from "react";
 
-import { ISignInFormInputs } from "./sign-in.types";
+import { ISignInFormInputs } from "./signin-page.types";
 import "./sign-in.modules.scss";
 
 export function SignIn() {

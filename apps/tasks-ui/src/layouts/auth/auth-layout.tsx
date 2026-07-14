@@ -1,7 +1,7 @@
-import { Outlet, Navigate } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import React from 'react';
 
-export const AuthLayout: React.FC = () => {
+const AuthLayout: React.FC = () => {
     // const isAuthenticated = false;
 
     // if (isAuthenticated) {
@@ -12,3 +12,5 @@ export const AuthLayout: React.FC = () => {
         <Outlet />
     );
 };
+
+export default AuthLayout;

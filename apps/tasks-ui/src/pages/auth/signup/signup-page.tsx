@@ -3,7 +3,7 @@ import { Controller, useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 
 import "./sign-up.modules.scss";
-import { ISignUpFormInputs } from "./sign-up.types";
+import { ISignUpFormInputs } from "./signup-page.types";
 
 const COUNTRIES = [
     { code: 'US', name: 'United States' },

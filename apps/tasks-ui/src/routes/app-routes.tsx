@@ -2,9 +2,9 @@ import { createBrowserRouter, Navigate } from "react-router-dom";
 
 import { ErrorBoundary } from "../components/error-wrappers/error-boundary/error-boundary";
 import PageNotFound from "../components/error-wrappers/page-not-found/page-not-found";
-import { AuthLayout } from "../layouts/auth/auth-layout";
-import SignIn from "../pages/auth/sign-in/sign-in";
-import SignUp from "../pages/auth/sign-up/sign-up";
+import SignIn from "../pages/auth/signin/signin-page";
+import SignUp from "../pages/auth/signup/signup-page";
+import AuthLayout from "../layouts/auth/auth-layout";
 import { RoutePaths } from "./route-paths";
 
 export const appRouter = createBrowserRouter([
