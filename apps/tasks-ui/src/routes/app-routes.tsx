@@ -5,6 +5,7 @@ import PageNotFound from "../components/error-wrappers/page-not-found/page-not-f
 import SigninPage from "../pages/auth/signin/signin-page";
 import SignupPage from "../pages/auth/signup/signup-page";
 import AuthLayout from "../layouts/auth/auth-layout";
+import MainLayout from "../layouts/main/main-layout";
 import { RoutePaths } from "./route-paths";
 
 export const appRouter = createBrowserRouter([
@@ -33,6 +34,9 @@ export const appRouter = createBrowserRouter([
                 element: <SignupPage />,
             },
         ],
+    }, {
+        path: '/profile',
+        element: <MainLayout />,
     }, {
         path: '*',
         element: <PageNotFound />,
