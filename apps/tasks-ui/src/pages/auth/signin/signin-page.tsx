@@ -5,14 +5,14 @@ import Visibility from '@mui/icons-material/Visibility';
 import { Controller, useForm } from "react-hook-form";
 import { useState } from "react";
 
-import { ISignInFormInputs } from "./sign-in.types";
-import "./sign-in.modules.scss";
+import { ISigninPageFormInputs } from "./signin-page.types";
+import "./signin-page.modules.scss";
 
-export function SignIn() {
+function SigninPage() {
 
     const [showPassword, setShowPassword] = useState(false);
 
-    const { control, handleSubmit, formState: { errors } } = useForm<ISignInFormInputs>({
+    const { control, handleSubmit, formState: { errors } } = useForm<ISigninPageFormInputs>({
         defaultValues: {
             email: '',
             password: ''
@@ -23,7 +23,7 @@ export function SignIn() {
 
     const handleMouseDownPassword = (event: React.MouseEvent<HTMLButtonElement>) => event.preventDefault();
 
-    const onSubmit = (data: ISignInFormInputs) => {
+    const onSubmit = (data: ISigninPageFormInputs) => {
         console.log('Sign In Payload', data);
     };
 
@@ -104,4 +104,4 @@ export function SignIn() {
     );
 }
 
-export default SignIn;
+export default SigninPage;

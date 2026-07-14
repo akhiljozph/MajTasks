@@ -5,4 +5,5 @@ export const RoutePaths = {
         SIGN_UP: 'sign-up',
     },
     DASHBOARD: '/dashboard',
+    PROFILE: '/profile'
 } as const;
