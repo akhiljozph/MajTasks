@@ -1,9 +1,16 @@
 import { Box, Button, TextField, Typography } from "@mui/material";
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import { InputAdornment, IconButton } from '@mui/material';
+import Visibility from '@mui/icons-material/Visibility';
 import { Controller, useForm } from "react-hook-form";
+import { useState } from "react";
 
 import { ISignInFormInputs } from "./sign-in.types";
+import "./sign-in.modules.scss";
 
 export function SignIn() {
+
+    const [showPassword, setShowPassword] = useState(false);
 
     const { control, handleSubmit, formState: { errors } } = useForm<ISignInFormInputs>({
         defaultValues: {
@@ -12,14 +19,19 @@ export function SignIn() {
         }
     });
 
+    const handleClickShowPassword = () => setShowPassword((show) => !show);
+
+    const handleMouseDownPassword = (event: React.MouseEvent<HTMLButtonElement>) => event.preventDefault();
+
     const onSubmit = (data: ISignInFormInputs) => {
         console.log('Sign In Payload', data);
-    }
+    };
 
     return (
         <Box
             component="form"
             onSubmit={handleSubmit(onSubmit)}
+            className="sign-in-box"
         >
             <Typography variant="h3" component="h1">
                 Sign In
@@ -57,17 +69,36 @@ export function SignIn() {
                     <TextField
                         {...field}
                         label="Password"
-                        type="password"
+                        type={showPassword ? 'text' : 'password'}
                         variant="outlined"
                         fullWidth
                         error={!!errors.password}
                         helperText={errors.password?.message}
+                        slotProps={{
+                            htmlInput: {
+                                'aria-invalid': !!errors,
+                            },
+                            input: {
+                                endAdornment: (
+                                    <InputAdornment position="end">
+                                        <IconButton
+                                            aria-label={showPassword ? "Hide password" : "Show password"}
+                                            onClick={handleClickShowPassword}
+                                            onMouseDown={handleMouseDownPassword}
+                                            edge="end"
+                                        >
+                                            {showPassword ? <VisibilityOff /> : <Visibility />}
+                                        </IconButton>
+                                    </InputAdornment>
+                                )
+                            }
+                        }}
                     />
                 )}
             />
 
             <Button type="submit" variant="contained" color="primary" fullWidth size="large">
-                Log In
+                Sign In
             </Button>
         </Box>
     );
