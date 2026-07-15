@@ -4,7 +4,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 function NavbarLayout() {
     return (
         <Box>
-            <AppBar>
+            <AppBar position="fixed">
                 <Toolbar>
                     <IconButton>
                         <MenuIcon />
