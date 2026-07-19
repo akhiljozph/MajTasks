@@ -1,4 +1,4 @@
-export interface DocViewrModalProps {
+export interface DocViewerModalProps {
     open: boolean;
     onClose: () => void;
 }

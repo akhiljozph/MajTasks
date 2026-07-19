@@ -2,7 +2,7 @@ import { Box, Modal } from "@mui/material";
 import DOMPurify from "dompurify";
 
 import "./doc-viewer-modal.modules.scss";
-import { DocViewrModalProps } from "./doc-viewer-modal.types";
+import { DocViewerModalProps } from "./doc-viewer-modal.types";
 
 const PrivacyPolicyContent = `<div class="privacy-policy">
   <h1>Privacy Policy</h1>
@@ -239,7 +239,7 @@ const PrivacyPolicyContent = `<div class="privacy-policy">
 //   </p>
 // </div>`
 
-const DocViewerModal: React.FC<DocViewrModalProps> = (props: DocViewrModalProps) => {
+const DocViewerModal: React.FC<DocViewerModalProps> = (props: DocViewerModalProps) => {
 
     const sanitizedHTMl = DOMPurify.sanitize(PrivacyPolicyContent)
     return (
