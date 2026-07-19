@@ -1,4 +1,4 @@
-import { Box, Button, FormControl, FormHelperText, InputLabel, MenuItem, Select, TextField, Typography } from "@mui/material";
+import { Box, Button, Checkbox, FormControl, FormControlLabel, FormHelperText, InputLabel, MenuItem, Select, TextField, Typography } from "@mui/material";
 import { Controller, useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 
@@ -22,7 +22,8 @@ function SignupPage() {
             country: '',
             email: '',
             password: '',
-            confirmPassword: ''
+            confirmPassword: '',
+            termsAndConditions: false
         }
     });
 
@@ -155,7 +156,46 @@ function SignupPage() {
                 )}
             />
 
-            <Button type="submit" variant="contained" color="primary" fullWidth size="large">
+            <Controller
+                name="termsAndConditions"
+                control={control}
+                rules={{
+                    required: 'Terms and Conditions should be accepted!'
+                }}
+                render={({ field }) => (
+                    <>
+                        <FormControlLabel
+                            control={
+
+                                <Checkbox
+                                    {...field}
+                                    slotProps={{
+                                        input: {
+                                            'aria-label': 'I accept the Terms of Service and consent to the Privacy Policy.',
+                                            'aria-invalid': !!errors
+                                        }
+                                    }}
+                                />
+                            }
+                            label={
+                                <Typography variant="body2">
+                                    I have read and agree to the{" "}
+                                    <span>
+                                        Terms of Service
+                                    </span>{" "}
+                                    and{" "}
+                                    <span>
+                                        Privacy Policy
+                                    </span>
+                                    .
+                                </Typography>
+                            }
+                        />
+                    </>
+                )}
+            />
+
+            <Button type="submit" variant="contained" color="primary" fullWidth size="large" disabled>
                 Sign Up
             </Button>
             <p className="helper-sign-in">Already have an Account? <span onClick={navigateToSignupPage}>Sign in.</span></p>
