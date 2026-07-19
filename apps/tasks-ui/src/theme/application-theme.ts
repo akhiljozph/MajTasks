@@ -13,7 +13,7 @@ export const applicationTheme = createTheme({
         },
     },
     typography: {
-        fontFamily: '"Joti One", "Roboto"',
+        fontFamily: '"Titillium Web", "Roboto"',
         h1: {
             fontWeight: 700,
         },
