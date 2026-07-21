@@ -1,10 +1,9 @@
 import { Box, Button, Checkbox, FormControl, FormControlLabel, FormHelperText, InputLabel, MenuItem, Select, TextField, Typography } from "@mui/material";
 import { Controller, useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-
-import "./signup-page.modules.scss";
 import { useState } from "react";
 
+import "./signup-page.modules.scss";
 import DocViewerModal from "../../../components/shared/modals/doc-viewer/doc-viewer-modal";
 import { ISignupPageFormInputs } from "./signup-page.types";
 
@@ -19,24 +18,34 @@ const COUNTRIES = [
 function SignupPage() {
 
     const [openModal, setOpenModal] = useState(false);
+    const [termsAndPoliciesViewed, setTermsAndPoliciesViewed] = useState({
+        terms: false,
+        policies: false
+    })
 
     const navigate = useNavigate();
 
-    const { control, handleSubmit, watch, formState: { errors } } = useForm<ISignupPageFormInputs>({
+    const { control, handleSubmit, watch, formState: { errors, isValid } } = useForm<ISignupPageFormInputs>({
+        mode: 'onChange',
         defaultValues: {
             country: '',
             email: '',
             password: '',
             confirmPassword: '',
-            termsAndConditions: false
+            termsAndPoliciesAccepted: false
         }
     });
 
     const passwordValue = watch('password');
 
+    const hasReadBoth = termsAndPoliciesViewed.terms && termsAndPoliciesViewed.policies;
+
     const handlePaste = (event: React.ClipboardEvent<HTMLDivElement>) => event.preventDefault();
 
-    const openTermsAndPoliciesModal = () => {
+    const openTermsAndPoliciesModal = (activeDoc: string) => {
+        if (activeDoc) {
+            setTermsAndPoliciesViewed((prev) => ({ ...prev, [activeDoc]: true }));
+        }
         setOpenModal(true);
     }
 
@@ -167,7 +176,7 @@ function SignupPage() {
                 />
 
                 <Controller
-                    name="termsAndConditions"
+                    name="termsAndPoliciesAccepted"
                     control={control}
                     rules={{
                         required: 'Terms and Conditions should be accepted!'
@@ -178,7 +187,7 @@ function SignupPage() {
 
                                 <Checkbox
                                     {...field}
-                                    disabled
+                                    disabled={!hasReadBoth}
                                     slotProps={{
                                         input: {
                                             'aria-label': 'I accept the Terms of Service and consent to the Privacy Policy.',
@@ -190,11 +199,11 @@ function SignupPage() {
                             label={
                                 <Typography variant="body2">
                                     I have read and agree to the{""}
-                                    <Button onClick={openTermsAndPoliciesModal}>
+                                    <Button onClick={() => openTermsAndPoliciesModal('terms')}>
                                         Terms of Service
                                     </Button>{""}
                                     and{""}
-                                    <Button onClick={openTermsAndPoliciesModal}>
+                                    <Button onClick={() => openTermsAndPoliciesModal('policies')}>
                                         Privacy Policy.
                                     </Button>
                                 </Typography>
@@ -203,7 +212,7 @@ function SignupPage() {
                     )}
                 />
 
-                <Button type="submit" variant="contained" color="primary" fullWidth size="large" disabled>
+                <Button type="submit" variant="contained" color="primary" fullWidth size="large" disabled={!isValid}>
                     Sign Up
                 </Button>
                 <p className="helper-sign-in">Already have an Account? <span onClick={navigateToSignupPage}>Sign in.</span></p>
