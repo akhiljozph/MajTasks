@@ -1,12 +1,11 @@
 import { Box, Button, Checkbox, FormControl, FormControlLabel, FormHelperText, InputLabel, MenuItem, Select, TextField, Typography } from "@mui/material";
 import { Controller, useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-
-import "./signup-page.modules.scss";
 import { useState } from "react";
 
 import DocViewerModal from "../../../components/shared/modals/doc-viewer/doc-viewer-modal";
 import { ISignupPageFormInputs } from "./signup-page.types";
+import styles from "./signup-page.module.scss";
 
 const COUNTRIES = [
     { code: 'US', name: 'United States' },
@@ -53,7 +52,7 @@ function SignupPage() {
             <Box
                 component="form"
                 onSubmit={handleSubmit(onSubmit)}
-                className="sign-up-box"
+                className={styles.signUpBox}
             >
                 <Typography variant="h3" component="h1">
                     Sign Up
@@ -206,7 +205,7 @@ function SignupPage() {
                 <Button type="submit" variant="contained" color="primary" fullWidth size="large" disabled>
                     Sign Up
                 </Button>
-                <p className="helper-sign-in">Already have an Account? <span onClick={navigateToSignupPage}>Sign in.</span></p>
+                <p className={styles.helperSignIn}>Already have an Account? <span onClick={navigateToSignupPage}>Sign in.</span></p>
             </Box>
 
             <DocViewerModal open={openModal} onClose={() => setOpenModal(false)} />
