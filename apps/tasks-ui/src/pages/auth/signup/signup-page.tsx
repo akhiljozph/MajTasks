@@ -5,8 +5,8 @@ import { useState } from "react";
 
 import DocViewerModal from "../../../components/shared/modals/doc-viewer/doc-viewer-modal";
 import { ISignupPageFormInputs } from "./signup-page.types";
-import { useDebounce } from "../../../hooks/debounce";
 import styles from "./signup-page.module.scss";
+import { useDebounce } from "../../../hooks";
 
 const COUNTRIES = [
     { code: 'US', name: 'United States' },
