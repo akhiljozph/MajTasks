@@ -5,6 +5,7 @@ import { useState } from "react";
 
 import DocViewerModal from "../../../components/shared/modals/doc-viewer/doc-viewer-modal";
 import { ISignupPageFormInputs } from "./signup-page.types";
+import { useDebounce } from "../../../hooks/debounce";
 import styles from "./signup-page.module.scss";
 
 const COUNTRIES = [
@@ -21,7 +22,11 @@ function SignupPage() {
     const [termsAndPoliciesViewed, setTermsAndPoliciesViewed] = useState({
         terms: false,
         policies: false
-    })
+    });
+
+    const debouncedHandleChange = useDebounce((value: string) => {
+        console.log(value);
+    }, 1000);
 
     const navigate = useNavigate();
 
@@ -40,7 +45,11 @@ function SignupPage() {
 
     const hasReadBoth = termsAndPoliciesViewed.terms && termsAndPoliciesViewed.policies;
 
-    const handlePaste = (event: React.ClipboardEvent<HTMLDivElement>) => event.preventDefault();
+    const handleInput: React.InputEventHandler<HTMLDivElement> = ($event) => {
+        debouncedHandleChange(($event.target as HTMLInputElement).value);
+    };
+
+    const handlePaste = ($event: React.ClipboardEvent<HTMLDivElement>) => $event.preventDefault();
 
     const openTermsAndPoliciesModal = (activeDoc: string) => {
         if (activeDoc) {
@@ -117,6 +126,7 @@ function SignupPage() {
                             fullWidth
                             error={!!errors.email}
                             helperText={errors.email?.message}
+                            onInput={handleInput}
                         />
                     )}
                 />
