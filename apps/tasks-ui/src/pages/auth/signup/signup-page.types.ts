@@ -3,5 +3,5 @@ export interface ISignupPageFormInputs {
     email: string;
     password: string;
     confirmPassword: string;
-    termsAndConditions: boolean;
+    termsAndPoliciesAccepted: boolean;
 }
