@@ -13,6 +13,11 @@ export default defineConfig(() => ({
     port: 8090,
     host: 'localhost',
   },
+  css: {
+    modules: {
+      localsConvention: 'camelCase' as const,
+    }
+  },
   plugins: [react()],
   optimizeDeps: {
     include: [
