@@ -3,7 +3,6 @@ import { Controller, useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
-import "./signup-page.modules.scss";
 import DocViewerModal from "../../../components/shared/modals/doc-viewer/doc-viewer-modal";
 import { ISignupPageFormInputs } from "./signup-page.types";
 import styles from "./signup-page.module.scss";
