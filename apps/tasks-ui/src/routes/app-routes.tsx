@@ -34,8 +34,23 @@ export const appRouter = createBrowserRouter([
             },
         ],
     }, {
-        path: '/profile',
-        lazy: () => import("../layouts/main/main-layout"),
+        path: RoutePaths.APP.ROOT,
+        lazy: () => import("../layouts/main/main-layout").then((module) => ({
+            Component: module.MainLayout,
+        })),
+        children: [
+            {
+                path: RoutePaths.APP.DASHBOARD,
+                lazy: () => import("../pages/app/dashboard/dashboard-page").then((module) => ({
+                    Component: module.DashboardPage,
+                }))
+            }, {
+                path: RoutePaths.APP.PROFILE,
+                lazy: () => import("../pages/app/profile/profile-page").then((module) => ({
+                    Component: module.ProfilePage,
+                })),
+            }
+        ]
     }, {
         path: '*',
         element: <PageNotFound />,
