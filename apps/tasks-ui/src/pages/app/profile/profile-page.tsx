@@ -1,5 +1,5 @@
 export function ProfilePage() {
     return (
-        <p>test</p>
+        <p>Profile Page works!</p>
     )
 }
