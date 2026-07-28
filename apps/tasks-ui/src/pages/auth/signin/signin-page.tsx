@@ -31,7 +31,7 @@ function SigninPage() {
 
     const onSubmit = (data: ISigninPageFormInputs) => {
         console.info(data);
-        navigate('/profile');
+        navigate('/app/profile');
     };
 
     return (
