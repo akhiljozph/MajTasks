@@ -30,7 +30,8 @@ function SigninPage() {
     }
 
     const onSubmit = (data: ISigninPageFormInputs) => {
-        console.log('Sign In Payload', data);
+        console.info(data);
+        navigate('/profile');
     };
 
     return (

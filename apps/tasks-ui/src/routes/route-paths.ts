@@ -4,6 +4,9 @@ export const RoutePaths = {
         SIGN_IN: 'sign-in',
         SIGN_UP: 'sign-up',
     },
-    DASHBOARD: '/dashboard',
-    PROFILE: '/profile'
+    APP: {
+        ROOT: '/app',
+        DASHBOARD: 'dashboard',
+        PROFILE: 'profile'
+    }
 } as const;

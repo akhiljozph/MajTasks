@@ -4,7 +4,7 @@ import { Box } from "@mui/material";
 import SidebarLayout from "../sidebar/sidebar-layout";
 import NavbarLayout from "../navbar/navbar-layout";
 
-export function Component() {
+export function MainLayout() {
     return (
         <Box>
             <NavbarLayout />
