@@ -3,13 +3,15 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import { InputAdornment, IconButton } from '@mui/material';
 import Visibility from '@mui/icons-material/Visibility';
 import { Controller, useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
-import { ISigninPageFormInputs } from "./signin-page.types";
 import "./signin-page.modules.scss";
+import { ISigninPageFormInputs } from "./signin-page.types";
 
 function SigninPage() {
 
+    const navigate = useNavigate();
     const [showPassword, setShowPassword] = useState(false);
 
     const { control, handleSubmit, formState: { errors } } = useForm<ISigninPageFormInputs>({
@@ -22,6 +24,10 @@ function SigninPage() {
     const handleClickShowPassword = () => setShowPassword((show) => !show);
 
     const handleMouseDownPassword = (event: React.MouseEvent<HTMLButtonElement>) => event.preventDefault();
+
+    const navigateToSignInPage = () => {
+        navigate('/auth/sign-up');
+    }
 
     const onSubmit = (data: ISigninPageFormInputs) => {
         console.log('Sign In Payload', data);
@@ -100,6 +106,7 @@ function SigninPage() {
             <Button type="submit" variant="contained" color="primary" fullWidth size="large">
                 Sign In
             </Button>
+            <p className="helper-sign-up">Don't have an Account? <span onClick={navigateToSignInPage}>Create an account.</span></p>
         </Box>
     );
 }
