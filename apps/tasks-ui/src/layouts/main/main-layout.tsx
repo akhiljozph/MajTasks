@@ -6,10 +6,25 @@ import NavbarLayout from "../navbar/navbar-layout";
 
 export function MainLayout() {
     return (
-        <Box>
+        <Box
+            sx={{
+                display: "flex",
+                flexDirection: "column",
+                width: "100vw",
+                height: "100vh",
+                overflow: "hidden",
+            }}
+        >
             <NavbarLayout />
-            <SidebarLayout />
-            <Outlet />
+            <Box sx={{ display: "flex", flex: 1, minHeight: 0, overflow: "hidden" }}>
+                <SidebarLayout />
+                <Box
+                    component="main"
+                    sx={{ flexGrow: 1, overflow: "auto" }}
+                >
+                    <Outlet />
+                </Box>
+            </Box>
         </Box>
     );
 }
