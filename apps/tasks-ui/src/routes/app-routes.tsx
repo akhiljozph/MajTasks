@@ -2,6 +2,7 @@ import { createBrowserRouter, Navigate } from "react-router-dom";
 
 import { ErrorBoundary } from "../components/error-wrappers/error-boundary/error-boundary";
 import PageNotFound from "../components/error-wrappers/page-not-found/page-not-found";
+import { ProtectedRoute } from "../components/auth/protected-route/protected-route";
 import SigninPage from "../pages/auth/signin/signin-page";
 import SignupPage from "../pages/auth/signup/signup-page";
 import AuthLayout from "../layouts/auth/auth-layout";
@@ -35,6 +36,7 @@ export const appRouter = createBrowserRouter([
         ],
     }, {
         path: RoutePaths.APP.ROOT,
+        element: <ProtectedRoute />,
         lazy: () => import("../layouts/main/main-layout").then((module) => ({
             Component: module.MainLayout,
         })),
