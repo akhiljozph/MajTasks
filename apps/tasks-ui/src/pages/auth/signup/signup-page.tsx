@@ -5,6 +5,7 @@ import { useState } from "react";
 
 import DocViewerModal from "../../../components/shared/modals/doc-viewer/doc-viewer-modal";
 import { ISignupPageFormInputs } from "./signup-page.types";
+import { RoutePaths } from "../../../routes/route-paths";
 import styles from "./signup-page.module.scss";
 import { useDebounce } from "../../../hooks";
 
@@ -62,8 +63,8 @@ function SignupPage() {
         console.log('Sign up Payload', data);
     };
 
-    const navigateToSignupPage = () => {
-        navigate('/auth/sign-in');
+    const navigateToSignInPage = () => {
+        navigate(RoutePaths.AUTH.SIGN_IN);
     }
 
     return (
@@ -225,7 +226,7 @@ function SignupPage() {
                 <Button type="submit" variant="contained" color="primary" fullWidth size="large" disabled={!isValid}>
                     Sign Up
                 </Button>
-                <p className={styles.helperSignIn}>Already have an Account? <span onClick={navigateToSignupPage}>Sign in.</span></p>
+                <p className={styles.helperSignIn}>Already have an Account? <span onClick={navigateToSignInPage}>Sign in.</span></p>
             </Box>
 
             <DocViewerModal open={openModal} onClose={() => setOpenModal(false)} />

@@ -6,8 +6,9 @@ import { Controller, useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
-import "./signin-page.modules.scss";
 import { ISigninPageFormInputs } from "./signin-page.types";
+import { RoutePaths } from "../../../routes/route-paths";
+import "./signin-page.modules.scss";
 
 function SigninPage() {
 
@@ -25,14 +26,14 @@ function SigninPage() {
 
     const handleMouseDownPassword = (event: React.MouseEvent<HTMLButtonElement>) => event.preventDefault();
 
-    const navigateToSignInPage = () => {
-        navigate('/auth/sign-up');
+    const navigateToSignUpPage = () => {
+        navigate(RoutePaths.AUTH.SIGN_UP);
     }
 
     const onSubmit = (data: ISigninPageFormInputs) => {
         console.log(data);
         sessionStorage.setItem('maj-tasks-token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWUsImlhdCI6MTUxNjIzOTAyMn0.KMUFsIDTnFmyG3nMiGM6H9FNFUROf3wh7SmqJp-QV30');
-        navigate('/app/profile');
+        navigate(RoutePaths.APP.PROFILE);
     };
 
     return (
@@ -108,7 +109,7 @@ function SigninPage() {
             <Button type="submit" variant="contained" color="primary" fullWidth size="large">
                 Sign In
             </Button>
-            <p className="helper-sign-up">Don't have an Account? <span onClick={navigateToSignInPage}>Create an account.</span></p>
+            <p className="helper-sign-up">Don't have an Account? <span onClick={navigateToSignUpPage}>Create an account.</span></p>
         </Box>
     );
 }
