@@ -11,7 +11,7 @@ export function ProtectedRoute({ children }: IProtectedRouteProps) {
     if (!isAuthenticated) {
         return (
             <Navigate
-                to={`${RoutePaths.AUTH.ROOT}/${RoutePaths.AUTH.SIGN_IN}`}
+                to={RoutePaths.AUTH.SIGN_IN}
                 state={{ from: location }}
                 replace
             />
