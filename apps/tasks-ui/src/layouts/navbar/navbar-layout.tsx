@@ -1,14 +1,15 @@
-import { AppBar, IconButton, Toolbar } from "@mui/material";
-import MenuIcon from '@mui/icons-material/Menu';
+import { AppBar } from "@mui/material";
 
 function NavbarLayout() {
     return (
         <AppBar position="static" sx={{ width: "100%" }}>
-            <Toolbar>
-                <IconButton color="inherit" edge="start">
-                    <MenuIcon />
-                </IconButton>
-            </Toolbar>
+            <p>Collapse</p>
+            <p>Icon</p>
+            <p>Search</p>
+            <p>Notification</p>
+            <p>Help</p>
+            <p>Settings</p>
+            <p>Profile</p>
         </AppBar>
     )
 }
