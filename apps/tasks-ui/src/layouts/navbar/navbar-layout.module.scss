@@ -1,4 +1,24 @@
 .navbar {
   display: flex;
-  width: '100%';
+  flex-direction: row !important;
+  width: 100%;
+}
+
+.toolbar {
+  display: flex;
+}
+
+.menuButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 16px;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700 !important;
+  font-size: 1.5em !important;
 }

@@ -2,26 +2,24 @@ import { AppBar, Toolbar, Typography } from "@mui/material";
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 
-// import styles from "./navbar-layout.module.scss";
+import styles from "./navbar-layout.module.scss";
 
 function NavbarLayout() {
     return (
-        <AppBar position="static" sx={{ width: "100%", display: "flex", flexDirection: "row" }}>
-
-            <Toolbar sx={{ display: "flex", justifyContent: "center", alignContent: "center", alignItems: "center" }}>
+        <AppBar position="static" className={styles.navbar}>
+            <Toolbar className={styles.toolbar}>
                 <IconButton
                     size="large"
                     edge="start"
                     color="inherit"
                     aria-label="menu"
-                    sx={{ mr: 2, display: "flex", justifyContent: "center", alignContent: "center", alignItems: "center" }}
+                    className={styles.menuButton}
                 >
                     <MenuIcon />
                 </IconButton>
-
             </Toolbar>
 
-            <Typography variant='h4' sx={{ display: "flex", justifyContent: "center", alignContent: "center", alignItems: "center", fontWeight: 700 }}>
+            <Typography variant='h4' className={styles.title}>
                 MajTasks
             </Typography>
 
