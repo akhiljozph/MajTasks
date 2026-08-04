@@ -1,43 +1,217 @@
 .navbar {
+  position: relative;
+  z-index: 1300;
+  flex-shrink: 0;
   width: 100%;
-  display: flex;
-  flex-direction: row !important;
-  justify-content: space-between;
-}
+  background: linear-gradient(180deg, #fffdf6 0%, #faf3df 100%) !important;
+  border-bottom: 1px solid rgba(94, 19, 19, 0.1);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.7) inset,
+    0 2px 8px rgba(94, 19, 19, 0.06) !important;
+  color: #5e1313 !important;
 
-.leftSide {
-  display: flex;
-  flex-direction: row !important;
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #fcb100 0%, #f5a800 55%, #5e1313 100%);
+    opacity: 0.9;
+  }
 }
 
 .toolbar {
-  display: flex;
-  justify-content: center !important;
+  display: flex !important;
   align-items: center !important;
+  justify-content: space-between;
+  gap: 0.75rem;
+  min-height: 4rem !important;
+  padding: 0 0.75rem 0 0.5rem !important;
 }
 
-.menuButton,
-.notificationsIcon,
-.infoIcon,
-.settingsIcon {
+.leftSide,
+.rightSide {
   display: flex;
-  justify-content: center;
   align-items: center;
+  flex-shrink: 0;
 }
 
-.title {
+.leftSide {
+  gap: 0.15rem;
+  min-width: 0;
+}
+
+.middleSide {
   display: flex;
-  justify-content: center !important;
-  align-items: center !important;
-  font-weight: 700 !important;
-  font-size: 1.5em !important;
+  flex: 1;
+  justify-content: center;
+  max-width: 28rem;
+  min-width: 0;
+  margin: 0 auto;
 }
 
 .rightSide {
-  display: flex;
-  justify-content: center !important;
-  align-items: center !important;
-  flex-direction: row !important;
-  margin-right: 1.5em;
-  cursor: pointer;
+  gap: 0.15rem;
+}
+
+.title {
+  display: inline-flex;
+  align-items: center;
+  margin: 0 !important;
+  padding: 0.2rem 0.35rem;
+  color: #5e1313 !important;
+  font-size: 1.45rem !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  text-decoration: none;
+  border-radius: 6px;
+  transition:
+    opacity 160ms ease,
+    transform 160ms ease;
+
+  &:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+  }
+
+  &:focus-visible {
+    outline: 2px solid #5e1313;
+    outline-offset: 2px;
+  }
+}
+
+.titleAccent {
+  color: #3d0f0f;
+}
+
+.iconButton {
+  color: #5e1313 !important;
+  border-radius: 10px !important;
+  transition:
+    background-color 160ms ease,
+    transform 160ms ease !important;
+
+  &:hover {
+    background-color: rgba(94, 19, 19, 0.1) !important;
+    transform: translateY(-1px);
+  }
+
+  &:focus-visible {
+    outline: 2px solid #5e1313;
+    outline-offset: 2px;
+  }
+}
+
+.search {
+  width: 100%;
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+  background: #ffffff;
+  border: 1px solid rgba(94, 19, 19, 0.12);
+  color: #3d1a1a;
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease,
+    box-shadow 160ms ease;
+
+  &:hover {
+    border-color: rgba(94, 19, 19, 0.2);
+  }
+
+  &:focus-within {
+    border-color: rgba(252, 177, 0, 0.7);
+    box-shadow: 0 0 0 3px rgba(252, 177, 0, 0.22);
+  }
+
+  :global(input) {
+    padding: 0.25rem 0;
+    font-size: 0.925rem;
+    font-weight: 500;
+
+    &::placeholder {
+      color: rgba(94, 19, 19, 0.45);
+      opacity: 1;
+    }
+  }
+}
+
+.searchIcon {
+  margin-right: 0.15rem;
+  color: rgba(94, 19, 19, 0.55);
+}
+
+.avatarButton {
+  margin-left: 0.35rem;
+  padding: 0.2rem !important;
+  border-radius: 999px !important;
+  transition:
+    transform 160ms ease,
+    box-shadow 160ms ease !important;
+
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 0 0 3px rgba(94, 19, 19, 0.16);
+  }
+
+  &:focus-visible {
+    outline: 2px solid #5e1313;
+    outline-offset: 2px;
+  }
+}
+
+.avatar {
+  width: 2.25rem !important;
+  height: 2.25rem !important;
+  background-color: #5e1313 !important;
+  color: #fefae0 !important;
+  font-size: 0.85rem !important;
+  font-weight: 700 !important;
+}
+
+/* iPad portrait and below */
+@media (max-width: 1023px) {
+  .toolbar {
+    min-height: 3.5rem !important;
+    gap: 0.5rem;
+    padding: 0 0.5rem 0 0.25rem !important;
+  }
+
+  .middleSide {
+    display: none;
+  }
+
+  .desktopOnly {
+    display: none !important;
+  }
+
+  .title {
+    font-size: 1.25rem !important;
+  }
+
+  .avatar {
+    width: 2rem !important;
+    height: 2rem !important;
+    font-size: 0.8rem !important;
+  }
+}
+
+/* Phones */
+@media (max-width: 600px) {
+  .tabletUp {
+    display: none !important;
+  }
+
+  .title {
+    font-size: 1.1rem !important;
+    max-width: 9.5rem;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .iconButton {
+    padding: 0.45rem !important;
+  }
 }

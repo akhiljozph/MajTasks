@@ -1,5 +1,10 @@
 .signUpPage {
   width: 100%;
+  min-height: 100dvh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 1.5rem;
 }
 
 .signUpBox {
@@ -7,7 +12,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 3rem;
+  width: 100%;
+  max-width: 28rem;
+  padding: 3rem 0;
 
   .helperSignIn {
     a {
@@ -37,4 +44,32 @@
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
+}
+
+@media (max-width: 1023px) {
+  .signUpPage {
+    padding: 1.25rem 1rem;
+  }
+
+  .signUpBox {
+    padding: 2rem 0;
+
+    :global(h1) {
+      font-size: 2rem !important;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .signUpPage {
+    padding: 1rem 0.75rem;
+  }
+
+  .signUpBox {
+    padding: 1.25rem 0;
+
+    :global(h1) {
+      font-size: 1.75rem !important;
+    }
+  }
 }

@@ -1,0 +1,117 @@
+.drawer {
+  flex-shrink: 0;
+  align-self: stretch;
+  height: 100%;
+  max-height: 100%;
+  white-space: nowrap;
+}
+
+.drawerCollapsed {
+  pointer-events: none;
+}
+
+.paper {
+  box-sizing: border-box;
+  border-right: 1px solid rgba(94, 19, 19, 0.12);
+  background: linear-gradient(180deg, #fffdf5 0%, #fefae0 48%, #f8f0d0 100%);
+}
+
+.paperDesktop {
+  position: relative !important;
+  top: auto !important;
+  height: 100% !important;
+  max-height: 100%;
+}
+
+.paperCompact {
+  max-width: min(240px, 85vw);
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 1rem 0.75rem 1.25rem;
+  overflow-y: auto;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.divider {
+  height: 1px;
+  margin: 0.85rem 0.5rem;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(94, 19, 19, 0.18) 20%,
+    rgba(94, 19, 19, 0.18) 80%,
+    transparent 100%
+  );
+}
+
+.sectionLabel {
+  margin: 0 0 0.35rem 0.65rem !important;
+  font-size: 0.7rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  color: #5e1313 !important;
+  opacity: 0.55;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.item {
+  border-radius: 8px !important;
+  min-height: 2.5rem;
+  padding: 0.35rem 0.75rem !important;
+  color: #3d1a1a !important;
+  transition:
+    background-color 160ms ease,
+    color 160ms ease,
+    transform 160ms ease !important;
+
+  &:hover {
+    background-color: rgba(252, 177, 0, 0.14) !important;
+    transform: translateX(2px);
+  }
+
+  &:focus-visible {
+    outline: 2px solid #fcb100;
+    outline-offset: 2px;
+  }
+
+  &:global(.Mui-selected) {
+    background-color: rgba(252, 177, 0, 0.22) !important;
+    color: #5e1313 !important;
+    box-shadow: inset 3px 0 0 #fcb100;
+
+    .itemIcon {
+      color: #5e1313 !important;
+    }
+
+    &:hover {
+      background-color: rgba(252, 177, 0, 0.3) !important;
+    }
+  }
+}
+
+.itemIcon {
+  min-width: 2rem !important;
+  color: rgba(94, 19, 19, 0.7) !important;
+  transition: color 160ms ease;
+}
+
+.itemLabel {
+  font-size: 0.925rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.01em;
+}

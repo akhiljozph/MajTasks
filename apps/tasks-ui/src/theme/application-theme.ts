@@ -12,6 +12,16 @@ export const applicationTheme = createTheme({
             default: '#FEFAE0'
         },
     },
+    breakpoints: {
+        values: {
+            xs: 0,
+            sm: 600,
+            // iPad portrait and below use the compact shell (overlay sidebar).
+            md: 1024,
+            lg: 1280,
+            xl: 1536,
+        },
+    },
     typography: {
         fontFamily: '"Titillium Web", "Roboto"',
         h1: {

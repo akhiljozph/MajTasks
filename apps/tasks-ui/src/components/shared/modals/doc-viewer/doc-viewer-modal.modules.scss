@@ -3,7 +3,8 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 75%;
+  width: min(75%, 52rem);
+  max-width: calc(100vw - 2rem);
   max-height: 80vh;
   border-radius: 0.5rem;
   box-shadow: 0px 11px 15px -7px rgba(0, 0, 0, 0.2);
@@ -12,4 +13,22 @@
   outline: none;
   background-color: antiquewhite;
   padding: 1.5rem;
+  overflow: auto;
+}
+
+@media (max-width: 1023px) {
+  .doc-viewer-modal-card {
+    width: calc(100vw - 2rem);
+    max-height: 90dvh;
+    padding: 1.25rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .doc-viewer-modal-card {
+    width: calc(100vw - 1rem);
+    max-height: 92dvh;
+    padding: 1rem;
+    border-radius: 0.4rem;
+  }
 }
