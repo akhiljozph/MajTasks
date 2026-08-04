@@ -6,11 +6,11 @@ export default defineConfig(() => ({
   root: import.meta.dirname,
   cacheDir: '../../node_modules/.vite/apps/tasks-ui',
   server: {
-    port: 8090,
+    port: 1026,
     host: 'localhost',
   },
   preview: {
-    port: 8090,
+    port: 1026,
     host: 'localhost',
   },
   css: {
