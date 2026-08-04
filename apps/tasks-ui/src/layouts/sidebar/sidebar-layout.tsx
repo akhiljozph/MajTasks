@@ -20,7 +20,19 @@ function SidebarLayout() {
                 },
             }}
         >
-            Menu item
+            <nav aria-label="Main">
+                <div>
+                    <p>Your Work</p>
+                    <p>Recents</p>
+                    <p>Starred</p>
+                    <p>Projects</p>
+                    <p>Notes</p>
+                    <p>Canvas</p>
+                    <p>Dashboard</p>
+                    <p>Account</p>
+                    <p>Settings</p>
+                </div>
+            </nav>
         </Drawer>
     )
 }
