@@ -69,9 +69,3 @@ npm run tasks-api:e2e
 ### Backend
 
 - Nest.js
-
-### Code Quality & Tooling
-
-- ESLint + eslint-plugin-perfectionist (Line-length sorting and scope grouping)
-- Vitest (`tasks-ui` test runner)
-- Jest (`tasks-api` test runner)
